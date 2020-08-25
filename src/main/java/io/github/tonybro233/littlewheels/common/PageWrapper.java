@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 public final class PageWrapper {
 
     /**
-     * 根据分页信息将{@link List}包装为{@link Page}，集合将根据分页信息
+     * 根据分页信息将{@link Collection}包装为{@link Page}，集合将根据分页信息
      * 重新排序(如果有排序内容)、切割。 <br/>
      * 分页信息自动合理化，不会超过最大页数 <br/>
      * 若分页信息为空，返回单页page <br/>
@@ -30,7 +30,7 @@ public final class PageWrapper {
      * @param <T>      泛型
      * @return 分页结果
      */
-    public static <T> Page<T> wrap(List<T> content, @Nullable Pageable pageable) {
+    public static <T> Page<T> wrap(Collection<T> content, @Nullable Pageable pageable) {
         Optional<Pageable> optionalPageable = Optional.ofNullable(pageable);
         if (optionalPageable.map(Pageable::isUnpaged).orElse(false)) {
             throw new UnsupportedOperationException("Not support unpaged!");

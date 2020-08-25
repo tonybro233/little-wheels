@@ -10,7 +10,7 @@ import java.util.Random;
  *
  * @author tony
  */
-public abstract class SubListUtils {
+public abstract class RandomSubListUtils {
 
     /**
      * 获取随机子集
