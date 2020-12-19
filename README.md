@@ -87,7 +87,7 @@
       // }
       
       @PostMapping("/pointer")
-      public ResponseEntity originForm(@RequestParam("/a/b/c") String c) {
+      public ResponseEntity originForm(@RequestBodyParam("/a/b/c") String c) {
           return ResponseEntity.ok("c value: " + c);
       }
   
@@ -97,6 +97,12 @@
   - RequestBodyParam
   - RequestBodyParamArgumentResolver
   - RequestBodyParamConfiguration
+  
+- 自定义参数校验注解示例
+
+  Web接口通常需要进行参数校验，使用validation注解是一个很方便的方式，尤其是在Spring环境下。这部分java已经提供了规范（JSR303），规范原生提供了一些校验注解如`@NotEmpty`、`@Size`等等，但是实际应用中的参数校验可能需要一些额外的规则，此时可以考虑使用自定义校验注解，项目中给出了一个示例：校验字符串的字节长度。
+
+  - @ByteSize
 
 ## jpa
 

@@ -28,7 +28,7 @@ public abstract class RandomSubListUtils {
     }
 
     /**
-     * 获取有序随机子集
+     * 获取有序(保持原有顺序)随机子集
      */
     public static <T> List<T> sortedRandomSubList(List<T> list, int n) {
         if (list.size() < n) {
