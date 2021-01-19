@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <contextName>Little-Wheels</contextName>
+
+    <!-- 声明变量 -->
+    <property name="key" value="val" />
+
+    <!--颜色转换工具, 能够做到输出到控制台有色, 输出到文件不带颜色标识内容-->
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
+
+    <!-- 输出到控制台 -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!--
+               格式说明文档: http://logback.qos.ch/manual/layouts.html
+               日志行号相关:
+               %f:输出日志讯息所属的类别的类别名
+               %c:输出日志讯息所属的类的全名
+               %l:输出日志事件的发生位置，即输出日志讯息的语句在他所在类别的第几行。
+            -->
+
+            <!--springboot原生简化改良-->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %clr(%5level) [%15.15thread] %clr(%-40.40logger{39}){cyan} : %msg%n</pattern>
+
+            <!--springboot原生log格式-->
+            <!--<pattern>%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(${PID:- }){magenta} %clr(===){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wEx</pattern>-->
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 基本级别 -->
+    <root level="info">
+        <appender-ref ref="console" />
+    </root>
+
+    <!-- logger示例 -->
+    <logger name="jdbc.sqlonly" level="ERROR" additivity="false">
+        <appender-ref ref="console" />
+    </logger>
+
+</configuration>
